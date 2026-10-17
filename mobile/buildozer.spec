@@ -20,7 +20,6 @@ android.accept_sdk_license = True
 android.allow_backup = True
 android.enable_androidx = True
 
-p4a.branch = master
 android.presplash_color = #FF6B00
 android.wakelock = 0
 android.release_artifact = aab
