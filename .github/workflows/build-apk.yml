@@ -59,6 +59,11 @@ jobs:
         env:
           BUILDOZER_WARN_ON_ROOT: 0
 
+      - name: Check output files
+        run: |
+          echo "Mencari file APK..."
+          find . -name "*.apk"
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         if: success()
@@ -67,10 +72,10 @@ jobs:
           path: '**/*.apk'
           retention-days: 30
 
-      - name: Upload build log jika gagal
+      - name: Upload build log
         uses: actions/upload-artifact@v4
-        if: failure()
+        if: always() 
         with:
-          name: build-log-failed-${{ github.run_number }}
+          name: build-log-${{ github.run_number }}
           path: mobile/build.log
           retention-days: 7
